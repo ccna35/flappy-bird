@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  width: 25rem;
+  height: 35rem;
+  background-color: blueviolet;
+  border-radius: 0.25rem;
+  background-image: url("./assets/bg.png");
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pattern {
+  height: 2rem;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 15%;
+  border-radius: 0.125rem;
+  border-bottom: 3px solid #654e56;
+  border-top: 3px solid #654e56;
+  background: repeating-linear-gradient(
+    -45deg,
+    #8ac048,
+    #8ac048 10px,
+    #4bae4e 10px,
+    #4bae4e 20px
+  );
+  background-size: 200% 200%;
+  animation: barberpole 5s linear infinite;
+}
+
+.pattern::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.25rem;
+  background: #fffffe;
+}
+
+.ground {
+  position: absolute;
+  height: 5.2rem;
+  width: 100%;
+  background-color: #e0d796;
+  left: 0;
+  bottom: 0;
+  box-shadow: inset 0px 3px 1px 0px #d4ac57;
+}
+
+@keyframes barberpole {
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.bird {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+  /* animation: moveUpDown 0.5s ease-in-out infinite alternate-reverse; */
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translate(-50%, -70%);
+  }
+
+  100% {
+    transform: translate(-50%, -30%);
+  }
+}
+
+.moveBird {
+  transform: translateY(-1rem);
+}
